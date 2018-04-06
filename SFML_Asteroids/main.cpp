@@ -1,24 +1,18 @@
+#include <iostream>
 #include <SFML/Graphics.hpp>
+#include "Application.h"
+
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
-	sf::CircleShape shape(100.f);
-	shape.setFillColor(sf::Color::Green);
-
-	while (window.isOpen())
+	try
 	{
-		sf::Event event;
-		while (window.pollEvent(event))
-		{
-			if (event.type == sf::Event::Closed)
-				window.close();
-		}
-
-		window.clear();
-		window.draw(shape);
-		window.display();
+		Application app;
+		app.run();
 	}
 
-	return 0;
+	catch (std::exception e)
+	{
+		std::cout << "\n EXCEPTION: " << e.what() << std::endl;
+	}
 }
