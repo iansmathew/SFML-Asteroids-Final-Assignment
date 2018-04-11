@@ -7,9 +7,9 @@ const float Game::PlayerSpeed = 100.f;
 
 Game::Game() 
 	: mWindow(sf::VideoMode(640, 480), "SFML Application", sf::Style::Close)
-	, mTexture()
+	, mTextureHolder()
+	, mfontHolder()
 	, mPlayer()
-	, mFont()
 	, mStatisticsText()
 	, mStatisticsUpdateTime()
 	, mStatisticsNumFrames(0)
@@ -21,18 +21,18 @@ Game::Game()
 
 	try 
 	{
-		!mTexture.loadFromFile("../Media/Textures/Eagle.png");
+		mTextureHolder.load(Textures::Eagle, "../Media/Textures/Eagle.png");
 	}
 	catch (std::exception e)
 	{
 		std::cout << e.what();
 	}
 	
-	mPlayer.setTexture(mTexture);
+	mPlayer.setTexture(mTextureHolder.get(Textures::Eagle));
 	mPlayer.setPosition(100.0f, 100.0f);
 
-	mFont.loadFromFile("../Media/Sansation.ttf");
-	mStatisticsText.setFont(mFont);
+	mfontHolder.load(Fonts::Main, "../Media/Sansation.ttf");
+	mStatisticsText.setFont(mfontHolder.get(Fonts::Main));
 	mStatisticsText.setPosition(5.f, 5.f);
 	mStatisticsText.setCharacterSize(10);
 }

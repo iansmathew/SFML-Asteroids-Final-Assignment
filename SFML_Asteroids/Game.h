@@ -1,5 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "ResourceHolder.h"
+#include "ResourceIdentifiers.h"
 
 class Game
 {
@@ -26,12 +28,12 @@ private:
 	static const float PlayerSpeed;
 
 	sf::RenderWindow mWindow;
+	TextureHolder mTextureHolder;
+	FontHolder mfontHolder;
 	sf::Sprite mPlayer;
-	sf::Texture mTexture;
-	sf::Font mFont;
+
 	sf::Text mStatisticsText;
 	sf::Time mStatisticsUpdateTime;
-
 	std::size_t mStatisticsNumFrames;
 
 	//Player movement

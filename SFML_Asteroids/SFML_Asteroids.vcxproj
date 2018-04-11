@@ -127,16 +127,14 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Application.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="ResourceIdentifiers.h" />
-    <ClInclude Include="State.h" />
-    <ClInclude Include="StateIdentifiers.h" />
-    <ClInclude Include="StateStack.h" />
     <ClInclude Include="StringHelpers.h" />
+    <ClInclude Include="ResourceHolder.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="StringHelpers.inl" />
+    <None Include="ResourceHolder.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
